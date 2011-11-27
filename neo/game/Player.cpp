@@ -1134,7 +1134,7 @@ set up conditions for animation
 ==============
 */
 void idPlayer::LinkScriptVariables( void ) {
-	AI_FORWARD.LinkTo(			scriptObject, "AI_FORWARD" );
+  	AI_FORWARD.LinkTo(			scriptObject, "AI_FORWARD" );
 	AI_BACKWARD.LinkTo(			scriptObject, "AI_BACKWARD" );
 	AI_STRAFE_LEFT.LinkTo(		scriptObject, "AI_STRAFE_LEFT" );
 	AI_STRAFE_RIGHT.LinkTo(		scriptObject, "AI_STRAFE_RIGHT" );
@@ -1324,8 +1324,8 @@ void idPlayer::Init( void ) {
 		SetSkin( skin );
 		renderEntity.shaderParms[6] = 0.0f;
 	}
-
-	value = spawnArgs.GetString( "bone_hips", "" );
+    
+	/*value = spawnArgs.GetString( "bone_hips", "" );
 	hipJoint = animator.GetJointHandle( value );
 	if ( hipJoint == INVALID_JOINT ) {
 		gameLocal.Error( "Joint '%s' not found for 'bone_hips' on '%s'", value, name.c_str() );
@@ -1341,8 +1341,8 @@ void idPlayer::Init( void ) {
 	headJoint = animator.GetJointHandle( value );
 	if ( headJoint == INVALID_JOINT ) {
 		gameLocal.Error( "Joint '%s' not found for 'bone_head' on '%s'", value, name.c_str() );
-	}
-
+        }*/
+    
 	// initialize the script variables
 	AI_FORWARD		= false;
 	AI_BACKWARD		= false;
@@ -4009,6 +4009,7 @@ idPlayer::UpdateWeapon
 ===============
 */
 void idPlayer::UpdateWeapon( void ) {
+    return;
 	if ( health <= 0 ) {
 		return;
 	}

@@ -1197,6 +1197,7 @@ void idSessionLocal::StartNewGame( const char *mapName, bool devmap ) {
 	mapSpawnData.syncedCVars = *cvarSystem->MoveCVarsToDict( CVAR_NETWORKSYNC );
 
 	MoveToNewMap( mapName );
+
 #endif
 }
 
@@ -1223,16 +1224,18 @@ Leaves the existing userinfo and serverinfo
 ===============
 */
 void idSessionLocal::MoveToNewMap( const char *mapName ) {
+
 	mapSpawnData.serverInfo.Set( "si_map", mapName );
 
 	ExecuteMapChange();
 
-	if ( !mapSpawnData.serverInfo.GetBool("devmap") ) {
+    /*	if ( !mapSpawnData.serverInfo.GetBool("devmap") ) {
 		// Autosave at the beginning of the level
-		SaveGame( GetAutoSaveName( mapName ), true );
-	}
+      	SaveGame( GetAutoSaveName( mapName ), true );
+        }*/
 
 	SetGUI( NULL, NULL );
+
 }
 
 /*
@@ -1727,6 +1730,7 @@ void idSessionLocal::ExecuteMapChange( bool noFadeWipe ) {
 	// we are valid for game draws now
 	mapSpawned = true;
 	Sys_ClearEvents();
+
 }
 
 /*
